@@ -18,7 +18,7 @@ export default (props) => {
         <button onClick={() => props.updateFilter('yes')}>Accepted</button>&nbsp;
         <button onClick={() => props.updateFilter('no')}>Rejected</button>&nbsp;
       </div>
-      <h2>{props.loading ? 'loading' : ''}</h2>
+      <h2>{props.loading ? 'loading...' : ''}</h2>
       {
         apps ?
         <div className="quizzes">

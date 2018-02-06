@@ -1,15 +1,15 @@
 import React from 'react'
 
 export default function(props) {
-  const {quiz: q, action, filter} = this.props
+  const {quiz: q, action, filter} = props
+
+  const photos = q.photos.concat((q.user.availablePhotos || []).map((p) => p.image))
 
   return (
     <div className="quiz">
-      {filter === q.status ? null : <h2 className="status">{q.status}</h2>}
-      <h3 className="name">{q.user.fullName}, {q.user.id}, {q.email}</h3>
-      <h4 className="dob">{q.dob}</h4>
+      <h3 className="name">{q.user.fullName}, {(new Date()).getFullYear() - q.dob.split(' ').slice(-1)[0]}</h3>
       <div className="photos">
-        {q.photos.filter(p => p).map((p,i) => <img key={i} src={p.url} alt='' />)}
+        {photos.concat(q.user.availablePhotos).filter(p => p).map((p,i) => <img key={i} src={p.url} alt='' />)}
       </div>
       <p className="freeform">{q.freeform}</p>
       <p className="vip">
