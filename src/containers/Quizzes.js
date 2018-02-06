@@ -10,7 +10,6 @@ class Quizzes extends Component {
     this.props.fetch()
   }
   render() {
-    console.log(this.props)
     return <QuizzesView {...this.props} />
   }
 }
