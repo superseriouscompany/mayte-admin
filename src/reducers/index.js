@@ -1,7 +1,5 @@
 import {
-  applyMiddleware,
   createStore,
-  compose,
   combineReducers,
 } from 'redux'
 

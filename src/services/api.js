@@ -3,7 +3,7 @@ const baseUrl = process.env.NODE_ENV === 'production' ?
                 'http://mayte.ngrok.io'
 
 function request(path, options = {}) {
-  if( path[0] != '/' ) path = `/${path}`;
+  if( path[0] !== '/' ) path = `/${path}`;
 
   options.headers = options.headers || {}
   options.headers['Content-Type'] = 'application/json'
@@ -34,7 +34,7 @@ function request(path, options = {}) {
     }
     return json
   }).catch((err) => {
-    if( err.name == 'ApiError' ) { throw err }
+    if( err.name === 'ApiError' ) { throw err }
 
     err.statusCode = statusCode
     console.error(err)
