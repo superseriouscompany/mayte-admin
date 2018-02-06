@@ -1,6 +1,6 @@
-const baseUrl = process.env.NODE_ENV === 'production' ?
-                'https://api.dateunicorn.com' :
-                'http://mayte.ngrok.io'
+const baseUrl = window.location.href.match(/localhost/) ?
+  'http://mayte.ngrok.io' :
+  'https://api.dateunicorn.com'
 
 function request(path, options = {}) {
   if( path[0] !== '/' ) path = `/${path}`;

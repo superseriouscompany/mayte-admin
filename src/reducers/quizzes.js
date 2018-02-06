@@ -1,7 +1,9 @@
 import api from '../services/api'
 import store from '.'
 
-const adminToken = 'c1b982a0-06f3-11e8-914e-b5b6fc997f54'
+const adminToken = window.location.href.match(/localhost/) ?
+  'c1b982a0-06f3-11e8-914e-b5b6fc997f54' : '756e3710-06fd-11e8-b086-a37b668a4131'
+
 const fetchQuizzes = () => {
   return api('/applications', {
     method: 'GET',
