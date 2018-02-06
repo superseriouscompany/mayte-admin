@@ -15,6 +15,7 @@ class Quizzes extends Component {
   render() {
     const {props, state} = this
     return <QuizzesView {...props.quizzes} {...state}
+             action={props.action}
              updateFilter={(f) => this.setState({filter: f})}
              quizzes={!state.filter ? props.quizzes.queue : props.quizzes.queue.filter(q => q.status === state.filter)} />
   }
