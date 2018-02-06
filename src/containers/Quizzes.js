@@ -3,11 +3,20 @@ import QuizzesView from '../components/QuizzesView'
 import {connect} from 'react-redux'
 
 class Quizzes extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      filter: null
+    }
+  }
   componentDidMount() {
     this.props.fetch()
   }
   render() {
-    return <QuizzesView {...this.props} />
+    const {props, state} = this
+    return <QuizzesView {...props.quizzes} {...state}
+             updateFilter={(f) => this.setState({filter: f})}
+             quizzes={!state.filter ? props.quizzes.queue : props.quizzes.queue.filter(q => q.status === state.filter)} />
   }
 }
 

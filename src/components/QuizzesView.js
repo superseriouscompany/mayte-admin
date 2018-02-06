@@ -24,44 +24,51 @@ class QuizView extends Component {
 
 export default (props) => {
 
-  const apps = !props.quizzes.queue ? null : {
-    unread: props.quizzes.queue.filter(q => q.status === 'unread'),
-    maybe: props.quizzes.queue.filter(q => q.status === 'maybe'),
-    yes: props.quizzes.queue.filter(q => q.status === 'yes'),
-    no: props.quizzes.queue.filter(q => q.status === 'no'),
+  const apps = !props.queue ? null : {
+    unread: props.queue.filter(q => q.status === 'unread'),
+    maybe: props.queue.filter(q => q.status === 'maybe'),
+    yes: props.queue.filter(q => q.status === 'yes'),
+    no: props.queue.filter(q => q.status === 'no'),
   }
 
   return(
     <div>
       <h1>Unicorn Applications</h1>
-      <h2>{props.quizzes.loading ? 'loading' : ''}</h2>
+      <div className="filter">
+        <button onClick={() => props.updateFilter(null)}>all</button>
+        <button onClick={() => props.updateFilter('unread')}>unread</button>
+        <button onClick={() => props.updateFilter('maybe')}>maybe</button>
+        <button onClick={() => props.updateFilter('no')}>rejected</button>
+        <button onClick={() => props.updateFilter('yes')}>accepted</button>
+      </div>
+      <h2>{props.loading ? 'loading' : ''}</h2>
       {
         apps ?
         <div className="quizzes">
-          <div className="unread">
+          {!props.filter || props.filter === 'unread' ? <div className="unread">
             <h1>Unread ({apps.unread.length})</h1>
             {
               apps.unread.map((q,i) => <QuizView key={i} quiz={q} action={props.action} />)
             }
-          </div>
-          <div className="maybe">
+          </div> : null}
+          {!props.filter || props.filter === 'maybe' ? <div className="maybe">
             <h1>Maybe ({apps.maybe.length})</h1>
             {
               apps.maybe.map((q,i) => <QuizView key={i} quiz={q} action={props.action} />)
             }
-          </div>
-          <div className="no">
+          </div> : null}
+          {!props.filter || props.filter === 'no' ? <div className="no">
             <h1>Rejected ({apps.no.length})</h1>
             {
               apps.no.map((q,i) => <QuizView key={i} quiz={q} action={props.action} />)
             }
-          </div>
-          <div className="yes">
+          </div> : null}
+          {!props.filter || props.filter === 'yes' ? <div className="yes">
             <h1>Accepted ({apps.yes.length})</h1>
             {
               apps.yes.map((q,i) => <QuizView key={i} quiz={q} action={props.action} />)
             }
-          </div>
+          </div> : null}
         </div> : null
       }
     </div>
