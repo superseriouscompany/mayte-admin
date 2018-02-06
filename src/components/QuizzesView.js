@@ -3,7 +3,10 @@ import React, {Component} from 'react'
 export default class QuizzesView extends Component {
   render() {
     return(
-      <div>wats gerd</div>
+      <div>
+        <h1>wats gerd</h1>
+        <h2>{this.props.quizzes.loading ? 'loading' : ''}</h2>
+      </div>
     )
   }
 }
