@@ -1,5 +1,5 @@
 .quiz {
-  padding: 0 1em;
+  padding: 1em 1em 4em;
 }
 
 .status {
@@ -44,4 +44,48 @@
 
 .freeform {
   margin: 0 0 1em 0;
+}
+
+.quizzes .quiz {
+  border-bottom: 1px solid gainsboro;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+
+.quizzes .quiz:last-child {
+  border-bottom: 0;
+}
+
+.filter a {
+  font-size: 2em;
+  color: gainsboro;
+  margin-right: 1em;
+}
+.filter a.active {
+  color: black;
+  text-decoration: underline;
+}
+
+.quizzes .quiz:hover {
+  background-color: ivory
+}
+
+.action {
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+}
+.action a {
+  background-color: gainsboro;
+  padding: 1em 2em;
+  margin-right: 2em;
+}
+.action a:hover { text-decoration: underline }
+.action a.yes {
+  background-color: forestgreen;
+  color: white;
+}
+.action a.no {
+  background-color: firebrick;
+  color: white;
 }

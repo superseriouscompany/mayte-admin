@@ -1,3 +1,7 @@
 #Root {
   padding: 2em;
 }
+
+* { box-sizing: border-box; }
+
+a { cursor: pointer; }
