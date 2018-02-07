@@ -58,6 +58,12 @@ export default (props) => {
           </div> : null}
         </div> : null
       }
+
+      { props.queue && !props.queue.length ?
+        <h2>There are no outstanding applications.</h2>
+      :
+        null
+      }
     </div>
   )
 }
