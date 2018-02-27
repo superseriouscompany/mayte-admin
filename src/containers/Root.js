@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import Quizzes from './Quizzes.js' // not working without extension?
-import {Provider} from 'react-redux'
-import store from '../reducers'
+import Quizzes              from './Quizzes'
+import Events               from './Events'
+import {Provider}           from 'react-redux'
+import store                from '../reducers'
 import '../styles/App.css'
 
 class Root extends Component {
@@ -9,7 +10,11 @@ class Root extends Component {
     return (
       <Provider store={store}>
         <div id="Root">
-          <Quizzes />
+          { false ?
+            <Quizzes />
+          :
+            <Events />
+          }
         </div>
       </Provider>
     )

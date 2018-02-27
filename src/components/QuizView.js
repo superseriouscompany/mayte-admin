@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function(props) {
-  const {quiz: q, action, filter} = props
+  const {quiz: q, action} = props
 
   const photos = q.photos.concat((q.user.availablePhotos || []).slice(0, 6).map((p) => p.image))
 

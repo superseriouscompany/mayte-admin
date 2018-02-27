@@ -42,4 +42,20 @@ function request(path, options = {}) {
   })
 }
 
+export function graph(accessToken, query, variables = {}) {
+  return request('/graph', {
+    method: 'POST',
+    body:   { query, variables },
+    accessToken,
+  }).then((r) => {
+    if( r.errors ) {
+      var err = new Error(r.body.errors.map(e => e.message || e).join(', '))
+      err.errors = r.errors
+      throw err
+    }
+
+    return r.data
+  })
+}
+
 export default request
