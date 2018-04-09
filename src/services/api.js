@@ -1,6 +1,6 @@
 const baseUrl = window.location.href.match(/localhost/) ?
   'http://mayte.ngrok.io' :
-  'https://api.dateunicorn.com'
+  'https://api.joinunicorn.com'
 
 function request(path, options = {}) {
   if( path[0] !== '/' ) path = `/${path}`;
