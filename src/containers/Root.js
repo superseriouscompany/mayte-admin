@@ -10,11 +10,7 @@ class Root extends Component {
     return (
       <Provider store={store}>
         <div id="Root">
-          { false ?
-            <Quizzes />
-          :
-            <Events />
-          }
+          <Quizzes />
         </div>
       </Provider>
     )
