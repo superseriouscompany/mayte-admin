@@ -1,4 +1,4 @@
-const baseUrl = window.location.href.match(/localhost/) ?
+const baseUrl = window.location.href.match(/localhost/) && false ?
   'http://mayte.ngrok.io' :
   'https://api.joinunicorn.com'
 

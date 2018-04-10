@@ -1,8 +1,8 @@
 import api from '../services/api'
 import store from '.'
 
-const adminToken = window.location.href.match(/localhost/) ?
-  '024b5390-392e-11e8-a81f-33816d5d3fa7' : '756e3710-06fd-11e8-b086-a37b668a4131'
+const adminToken = window.location.href.match(/localhost/) && false ?
+  '024b5390-392e-11e8-a81f-33816d5d3fa7' : '4c4e37e0-3c68-11e8-821f-313a9bedfba0'
 
 const fetchQuizzes = () => {
   return api('/applications', {
