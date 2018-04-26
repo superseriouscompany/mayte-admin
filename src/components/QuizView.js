@@ -2,13 +2,13 @@ import React from 'react'
 
 export default function(props) {
   const {quiz: q, action} = props
-
-  const photos = q.photos.concat((q.user.availablePhotos || []).slice(0, 6).map((p) => p.image))
+  console.log(q)
+  const photos = (q.photos || []).concat((q.user.availablePhotos || []).slice(0, 6).map((p) => p.image))
 
   return (
     <div className="quiz">
       <h3 className="name">
-        {q.user.fullName}, {(new Date()).getFullYear() - q.dob.split(' ').slice(-1)[0]}
+        {q.user.fullName}, {(new Date()).getFullYear() - (q.dob || '').split(' ').slice(-1)[0]}
         <br />
         <a target="_blank" href={q.website}>{q.website}</a>
       </h3>
